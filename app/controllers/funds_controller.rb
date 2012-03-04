@@ -42,6 +42,7 @@ class FundsController < ApplicationController
   # POST /funds.json
   def create
     @fund = Fund.new(params[:fund])
+    @fund.number_of_people = 1.0;
 
     respond_to do |format|
       if @fund.save

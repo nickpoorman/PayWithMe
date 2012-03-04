@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @fund = Fund.find(params[:fund_id])
-    @amount = params[:amount].to_s
     @users= User.search(params[:users_search])
     
     #@users = User.all

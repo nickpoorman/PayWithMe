@@ -7,8 +7,9 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.email %></td>
-        <td><%= link_to 'Add Friend', new_fund_transaction_path(@fund, :user_id => user.id, :amount => @amount), :remote => true %></td>
+      <td href="javascript:void(0)" onclick="$.post('<%= escape_javascript(fund_transactions_url(@fund, :user_id => user.id, :amount => @fund.single_amount)) %>', function(data) {
+          $('.result').html(data);
+      });;", data-fund="<%= @fund.id %>", data-user="<%= user.id %>", :data-amount="<%= @fund.single_amount %>" class='add-friend' %><%= user.email %></td>
       </tr>
     <% end %>
   </tbody>
