@@ -1,0 +1,32 @@
+<h1>Transaction</h1>
+
+<p>
+  <b> type</b><br>
+  <%= @transaction._type %>
+</p>
+
+<p>
+  <b></b><br>
+  <%= @transaction._id %>
+</p>
+
+<p>
+  <b>Paid</b><br>
+  <%= @transaction.paid %>
+</p>
+
+<p>
+  <b>Fund</b><br>
+  <%= @transaction.fund_id %>
+</p>
+
+<p>
+  <b>User</b><br>
+  <%= @transaction.user_id %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', transactions_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_transaction_path(@transaction), :class => 'btn' %>
+  <%= link_to 'Delete', transaction_path(@transaction), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

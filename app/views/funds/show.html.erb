@@ -1,0 +1,11 @@
+<div class="funds-hdr">
+  <h1><%= @fund.description %>
+    <small> $<%= @fund.amount %></small>
+  </h1>
+</div>
+
+<div class="form-actions">
+  <%= link_to 'Back', funds_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_fund_path(@fund), :class => 'btn' %>
+  <%= link_to 'Delete', fund_path(@fund), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

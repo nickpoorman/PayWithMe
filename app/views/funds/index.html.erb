@@ -1,0 +1,26 @@
+<h1>Funds</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th> type</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @funds.each do |fund| %>
+      <tr>
+        <td><%= fund.id %></td>
+        <td><%= link_to fund._type, fund_path(fund) %></td>
+        <td><%= fund.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_fund_path(fund), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', fund_path(fund), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_fund_path, :class => 'btn btn-primary' %>

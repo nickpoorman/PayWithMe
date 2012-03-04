@@ -1,0 +1,26 @@
+<h1>Transactions</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th> type</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.id %></td>
+        <td><%= link_to transaction._type, transaction_path(transaction) %></td>
+        <td><%= transaction.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_transaction_path(transaction), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', transaction_path(transaction), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_transaction_path, :class => 'btn btn-primary' %>

@@ -1,6 +1,23 @@
 PayWithMe::Application.routes.draw do
+  
+  resources :funds do
+    resources :transactions
+  end
+
+  #get "user_sessions/new"
+  #get "user_sessions/create"
+  #get "user_sessions/destroy"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
+
+   root :to => 'home#index'
+
+   resources :users
+   resources :user_sessions
+
+   match 'login' => 'user_sessions#new', :as => :login
+   match 'logout' => 'user_sessions#destroy', :as => :logout
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
