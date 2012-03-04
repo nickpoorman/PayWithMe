@@ -13,4 +13,11 @@ class User
   validates_presence_of :email
   validates_uniqueness_of :email
 
+  def self.search(search)
+    if !search.blank?
+      User.where(:email => /#{search}/i)
+    else
+      []
+    end
+  end
 end

@@ -1,8 +1,10 @@
 class TransactionsController < ApplicationController
+
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = Transaction.all
+    @fund = Fund.find(params[:fund_id])
+    @transactions = @fund.transactions.all.to_a
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,8 @@ class TransactionsController < ApplicationController
   # GET /transactions/1
   # GET /transactions/1.json
   def show
-    @transaction = Transaction.find(params[:id])
+    @fund = Fund.find(params[:fund_id])
+    @transaction = @fund.transactions.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +27,8 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   # GET /transactions/new.json
   def new
-    @transaction = Transaction.new
+    @fund = Fund.find(params[:fund_id])
+    @transaction = @fund.transactions.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +38,15 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/1/edit
   def edit
-    @transaction = Transaction.find(params[:id])
+    @fund = Fund.find(params[:fund_id])
+    @transaction = @fund.transactions.find(params[:id])
   end
 
   # POST /transactions
   # POST /transactions.json
   def create
-    @transaction = Transaction.new(params[:transaction])
+    @fund = Fund.find(params[:fund_id])
+    @transaction = @transaction.new(params[:transaction])
 
     respond_to do |format|
       if @transaction.save
@@ -56,7 +62,8 @@ class TransactionsController < ApplicationController
   # PUT /transactions/1
   # PUT /transactions/1.json
   def update
-    @transaction = Transaction.find(params[:id])
+    @fund = Fund.find(params[:fund_id])
+    @transaction = @fund.transactions.find(params[:id])
 
     respond_to do |format|
       if @transaction.update_attributes(params[:transaction])
@@ -72,7 +79,8 @@ class TransactionsController < ApplicationController
   # DELETE /transactions/1
   # DELETE /transactions/1.json
   def destroy
-    @transaction = Transaction.find(params[:id])
+    @fund = Fund.find(params[:fund_id])
+    @transaction = @fund.transactions.find(params[:id])
     @transaction.destroy
 
     respond_to do |format|

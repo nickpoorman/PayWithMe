@@ -1,41 +1,8 @@
-<%= form_for @transaction, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for [@fund, @transaction], :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Transaction</legend>
 
-    <div class="control-group">
-      <%= f.label :_type, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :_type, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :_id, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :paid, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :paid, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :fund_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :fund_id, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :user_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :user_id, :class => 'text_field' %>
-      </div>
-    </div>
+    <%= f.input :amount %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

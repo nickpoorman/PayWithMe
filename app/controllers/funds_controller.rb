@@ -1,4 +1,5 @@
 class FundsController < ApplicationController
+
   # GET /funds
   # GET /funds.json
   def index
