@@ -5,15 +5,16 @@
 </div>
 
 <%= form_tag users_path, :method => 'get', :id => 'users_search', :class => "form-search" do %>
-  <%= text_field_tag :users_search, params[:users_search], :name => "users_search", :class => "input-medium search-query sm-pad" %><%= submit_tag "Search", :name => nil %> <% end %>
+  <%= text_field_tag :users_search, params[:users_search], :name => "users_search", :class => "input-medium search-query sm-pad" %>
+  <%= hidden_field_tag :fund_id, @fund.id %>
+  <%= submit_tag "Search", :name => nil %> 
+<% end %>
 
 <div id="users-main">
 </div>
 
 <div id="trans-main">
 </div>
-
-<%= link_to 'Add friend', new_fund_transaction_path(@fund) %>
 
 <div class="form-actions">
   <%= link_to 'Back', funds_path, :class => 'btn'  %>

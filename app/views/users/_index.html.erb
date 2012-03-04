@@ -8,7 +8,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= link_to 'Add Friend'%></td>
+        <td><%= link_to 'Add Friend', new_fund_transaction_path(@fund, :user_id => user.id, :amount => @amount), :remote => true %></td>
       </tr>
     <% end %>
   </tbody>

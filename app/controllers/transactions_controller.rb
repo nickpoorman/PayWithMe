@@ -46,7 +46,11 @@ class TransactionsController < ApplicationController
   # POST /transactions.json
   def create
     @fund = Fund.find(params[:fund_id])
+    @user = User.find(params[:user_id])
     @transaction = @transaction.new(params[:transaction])
+    @transaction.amount = params[:amount]
+    @transaction.user = @user
+    @transaction.fund = @fund
 
     respond_to do |format|
       if @transaction.save
