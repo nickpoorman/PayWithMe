@@ -19,14 +19,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">PayWithMe.co</a>
+
+          <a class="brand" id="logo" href="<%= root_url %>"></a>
+
           <div class="nav-collapse">
             <ul class="nav">
               <li><%= link_to "Get paid", new_fund_path %></li>
               <li><%= link_to "Pay someone" %></li>
               <li><%= link_to "Pricing" %></li>
               <li><%= link_to "Contact Us" %></li>
-              <li> | </li>
+            </ul>
+            <ul class="nav pull-right">
               <% if current_user %>
                 <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %>
                 <li><%= link_to "Logout", :logout %></li>
