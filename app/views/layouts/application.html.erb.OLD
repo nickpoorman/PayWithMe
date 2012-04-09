@@ -23,9 +23,20 @@
           <a class="brand" id="logo" href="<%= root_url %>"></a>
 
           <div class="nav-collapse">
+            <ul class="nav">
+              <li><%= link_to "Get paid", new_fund_path %></li>
+              <li><%= link_to "Pay someone" %></li>
+              <li><%= link_to "Pricing" %></li>
+              <li><%= link_to "Contact Us" %></li>
+            </ul>
             <ul class="nav pull-right">
+              <% if current_user %>
+                <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+                <li><%= link_to "Logout", :logout %></li>
+              <% else %>
                 <li><%= link_to "Register", new_user_path %></li>
                 <li><%= link_to "Login", :login %></li>
+              <% end %>
             </ul>
           </div>
         </div>
